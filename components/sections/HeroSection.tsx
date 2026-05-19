@@ -124,12 +124,17 @@ export function HeroSection() {
             <div className="relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/15 ring-1 ring-blue-100">
               <Image
                 src="/img/team-office1.jpg"
-                alt="Especialista Facilitar Serviços Contábeis"
+                alt="Thais de Sousa Barbosa — CEO Facilitar Serviços Contábeis"
                 fill
                 className="object-cover object-top"
                 priority
                 quality={90}
               />
+              {/* Name tag at bottom of photo */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent px-5 py-5">
+                <p className="text-white font-semibold text-sm">Thais de Sousa Barbosa</p>
+                <p className="text-blue-300 text-xs">CEO — Facilitar Serviços Contábeis</p>
+              </div>
             </div>
 
             {/* Floating card — years of experience */}
