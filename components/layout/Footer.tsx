@@ -18,7 +18,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
-            <div className="relative w-48 h-14 mb-4" style={{ filter: 'brightness(0) invert(1)' }}>
+            <div className="relative w-48 h-14 mb-4" style={{ mixBlendMode: 'screen' }}>
               <Image src="/img/logo_com_fundo.png" alt="Facilitar Serviços Contábeis" fill className="object-contain" />
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
