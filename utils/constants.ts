@@ -30,8 +30,8 @@ export const NAV_LINKS = [
 
 export const SERVICES = [
   {
-    id: 'legalizacao',
-    title: 'Departamento de Legalização',
+    id: 'societario',
+    title: 'Departamento Societário',
     description: 'Abertura, alteração e encerramento de empresas, registros e alvarás com agilidade e segurança jurídica.',
     icon: 'Building2',
   },
