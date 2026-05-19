@@ -1,12 +1,10 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { ArrowRight, FileSearch, Phone, MapPin, CheckCircle2 } from 'lucide-react'
+import { FileSearch, Phone, MapPin } from 'lucide-react'
 import { COMPANY } from '@/utils/constants'
-import { buildWhatsAppLink } from '@/utils/formatters'
 
 export function HeroSection() {
-  const whatsappLink = buildWhatsAppLink(COMPANY.whatsapp, COMPANY.whatsappMessage)
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-slate-50">
@@ -66,29 +64,18 @@ export function HeroSection() {
               com tecnologia, segurança e atendimento humanizado.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4"
             >
               <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-semibold text-lg transition-all duration-300 shadow-lg shadow-blue-600/25 hover:-translate-y-0.5"
-              >
-                <Phone className="w-5 h-5" />
-                Falar com Especialista
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
                 href="#contato"
-                className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-semibold text-lg transition-all duration-300 hover:bg-blue-50"
+                className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-semibold text-lg transition-all duration-300 shadow-lg shadow-blue-600/25 hover:-translate-y-0.5"
               >
                 <FileSearch className="w-5 h-5" />
-                Solicitar Diagnóstico Gratuito
+                Fale com um Especialista
               </a>
             </motion.div>
 
@@ -136,22 +123,6 @@ export function HeroSection() {
                 <p className="text-blue-300 text-xs">CEO — Facilitar Serviços Contábeis</p>
               </div>
             </div>
-
-            {/* Floating card — years of experience */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="absolute bottom-20 -left-6 bg-white rounded-2xl shadow-xl border border-slate-100 px-5 py-4 flex items-center gap-3"
-            >
-              <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shrink-0">
-                <CheckCircle2 className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="text-slate-900 font-bold text-sm">+200 Clientes</p>
-                <p className="text-slate-500 text-xs">Atendidos com excelência</p>
-              </div>
-            </motion.div>
 
           </motion.div>
 
