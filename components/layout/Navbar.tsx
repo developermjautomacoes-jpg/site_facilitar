@@ -2,9 +2,8 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, User, BookOpen, Phone } from 'lucide-react'
-import { NAV_LINKS, COMPANY } from '@/utils/constants'
-import { buildWhatsAppLink } from '@/utils/formatters'
+import { Menu, X, User, BookOpen } from 'lucide-react'
+import { NAV_LINKS } from '@/utils/constants'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -21,7 +20,7 @@ export function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100'
-          : 'bg-transparent'
+          : 'bg-white/70 backdrop-blur-sm border-b border-slate-100/50'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,40 +56,23 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href="#"
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                scrolled
-                  ? 'glass glass-hover text-slate-600 hover:text-slate-900'
-                  : 'bg-white/10 border border-white/20 hover:bg-white/20 text-white'
-              }`}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg glass glass-hover text-slate-600 hover:text-slate-900 text-sm font-medium transition-all duration-300"
             >
               <User className="w-4 h-4" />
               Área do Cliente
             </a>
             <a
               href="#"
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                scrolled
-                  ? 'glass glass-hover text-slate-600 hover:text-slate-900'
-                  : 'bg-white/10 border border-white/20 hover:bg-white/20 text-white'
-              }`}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg glass glass-hover text-slate-600 hover:text-slate-900 text-sm font-medium transition-all duration-300"
             >
               <BookOpen className="w-4 h-4" />
               Facilito EAD
-            </a>
-            <a
-              href={buildWhatsAppLink(COMPANY.whatsapp, COMPANY.whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 rounded-lg text-white text-sm font-semibold transition-all duration-300 shadow-lg shadow-blue-600/25"
-            >
-              <Phone className="w-4 h-4" />
-              Fale Conosco
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className={`lg:hidden p-2 transition-colors ${scrolled ? 'text-slate-600 hover:text-slate-900' : 'text-white hover:text-slate-200'}`}
+            className="lg:hidden p-2 transition-colors text-slate-600 hover:text-slate-900"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Abrir menu"
           >
