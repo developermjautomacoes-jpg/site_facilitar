@@ -81,7 +81,14 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-xs">{COMPANY.fullName} · CNPJ {COMPANY.cnpj}</p>
-          <p className="text-slate-600 text-xs">© {year} Todos os direitos reservados</p>
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <p className="text-slate-600 text-xs">© {year} Todos os direitos reservados</p>
+            <span className="text-slate-700 hidden sm:block">·</span>
+            <p className="text-slate-500 text-xs">
+              Desenvolvido por{' '}
+              <span className="text-blue-400 font-medium">NEEKO Automações</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
