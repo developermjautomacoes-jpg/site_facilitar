@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { FileSearch, Phone, MapPin } from 'lucide-react'
+import { FileSearch, MapPin } from 'lucide-react'
 import { COMPANY } from '@/utils/constants'
 
 export function HeroSection() {
@@ -23,7 +23,7 @@ export function HeroSection() {
       <div className="absolute bottom-10 left-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-70 pointer-events-none" />
 
       {/* Two-column layout */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 w-full">
         <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center">
 
           {/* Left: Text */}
@@ -79,22 +79,6 @@ export function HeroSection() {
               </a>
             </motion.div>
 
-            {/* Contact info */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              className="mt-10 flex flex-wrap items-center gap-4 text-slate-500 text-sm"
-            >
-              <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2 hover:text-blue-600 transition-colors">
-                <Phone className="w-4 h-4 text-blue-600" />
-                {COMPANY.phone}
-              </a>
-              <span className="text-slate-200 hidden sm:block">·</span>
-              <a href={`mailto:${COMPANY.email}`} className="hover:text-blue-600 transition-colors">
-                {COMPANY.email}
-              </a>
-            </motion.div>
           </div>
 
           {/* Right: Professional photo */}

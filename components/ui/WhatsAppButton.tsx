@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion'
 import { COMPANY } from '@/utils/constants'
 import { buildWhatsAppLink } from '@/utils/formatters'
 
@@ -13,32 +12,23 @@ export function WhatsAppButton() {
   const href = buildWhatsAppLink(COMPANY.whatsapp, COMPANY.whatsappMessage)
 
   return (
-    <motion.div
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 2, type: 'spring', stiffness: 200 }}
-      className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3"
-    >
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 3 }}
-        className="glass px-4 py-2 rounded-full text-white text-sm whitespace-nowrap shadow-lg"
-      >
-        Fale com um Especialista
-      </motion.div>
+    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-2">
+      {/* Tooltip */}
+      <div className="bg-slate-900 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+        Fale pelo WhatsApp
+      </div>
 
+      {/* Button */}
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Abrir WhatsApp"
-        className="relative w-14 h-14 rounded-full bg-green-500 hover:bg-green-400 flex items-center justify-center shadow-xl shadow-green-500/30 transition-colors"
+        className="relative w-14 h-14 rounded-full bg-green-500 hover:bg-green-400 flex items-center justify-center shadow-xl shadow-green-500/40 transition-all duration-300 hover:scale-110"
       >
-        <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20" />
-        <span className="absolute inset-[-4px] rounded-full border-2 border-green-500/30 animate-pulse" />
+        <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-25" />
         <WhatsAppIcon />
       </a>
-    </motion.div>
+    </div>
   )
 }

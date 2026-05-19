@@ -18,7 +18,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
-            <div className="relative w-48 h-14 mb-4">
+            <div className="relative w-48 h-14 mb-4" style={{ filter: 'brightness(0) invert(1)' }}>
               <Image src="/img/logo_com_fundo.png" alt="Facilitar Serviços Contábeis" fill className="object-contain" />
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
@@ -31,7 +31,7 @@ export function Footer() {
                 { href: '#', label: 'LinkedIn', abbr: 'IN' },
               ].map(({ href, label, abbr }) => (
                 <a key={label} href={href} aria-label={label}
-                  className="w-9 h-9 rounded-lg glass glass-hover flex items-center justify-center text-slate-400 hover:text-white transition-colors text-xs font-bold">
+                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-colors text-xs font-bold">
                   {abbr}
                 </a>
               ))}
