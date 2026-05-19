@@ -41,7 +41,7 @@ export function ContactSection() {
   }
 
   const inputClass = (hasError: boolean) =>
-    `w-full px-4 py-3 rounded-xl bg-white/5 border ${hasError ? 'border-red-500/50' : 'border-white/10'} text-white placeholder-slate-500 focus:outline-none focus:border-blue-500/50 transition-all duration-200 text-sm`
+    `w-full px-4 py-3 rounded-xl bg-white border ${hasError ? 'border-red-400' : 'border-slate-200'} text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10 transition-all duration-200 text-sm`
 
   const contactInfo = [
     { icon: MapPin, label: 'Endereço', value: COMPANY.address.full },
@@ -50,7 +50,7 @@ export function ContactSection() {
   ]
 
   return (
-    <section id="contato" className="section-padding bg-slate-950">
+    <section id="contato" className="section-padding bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,13 +58,13 @@ export function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-sm font-medium mb-4">
             Fale Conosco
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-outfit)' }}>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-outfit)' }}>
             Vamos Conversar sobre <span className="text-gradient">Seu Negócio</span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="text-slate-600 max-w-xl mx-auto">
             Preencha o formulário e nossa equipe entrará em contato em até 1 dia útil.
           </p>
         </motion.div>
@@ -142,24 +142,24 @@ export function ContactSection() {
           >
             <div className="space-y-4">
               {contactInfo.map(({ icon: Icon, label, value }) => (
-                <div key={label} className="flex items-start gap-4 p-4 rounded-xl glass">
-                  <div className="w-10 h-10 rounded-lg bg-blue-600/20 border border-blue-500/30 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-blue-400" />
+                <div key={label} className="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <p className="text-slate-400 text-xs mb-1">{label}</p>
-                    <p className="text-white text-sm">{value}</p>
+                    <p className="text-slate-500 text-xs mb-1">{label}</p>
+                    <p className="text-slate-900 text-sm">{value}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-white/10 h-64">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 h-64">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.572895!2d-40.29565!3d-20.127800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zRmFjaWxpdGFyIFNlcnZpw6dvcyBDb250w6FiZWlz!5e0!3m2!1spt-BR!2sbr!4v1621234567890!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="100%"
-                style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
+                style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

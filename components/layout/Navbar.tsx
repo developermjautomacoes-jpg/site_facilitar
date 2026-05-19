@@ -20,7 +20,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-slate-900/95 backdrop-blur-md shadow-lg shadow-black/20 border-b border-white/5'
+          ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100'
           : 'bg-transparent'
       }`}
     >
@@ -45,7 +45,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-slate-300 hover:text-white text-sm font-medium transition-colors duration-200 relative group"
+                className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors duration-200 relative group"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300" />
@@ -57,14 +57,22 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href="#"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg glass glass-hover text-slate-300 hover:text-white text-sm font-medium"
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                scrolled
+                  ? 'glass glass-hover text-slate-600 hover:text-slate-900'
+                  : 'bg-white/10 border border-white/20 hover:bg-white/20 text-white'
+              }`}
             >
               <User className="w-4 h-4" />
               Área do Cliente
             </a>
             <a
               href="#"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg glass glass-hover text-slate-300 hover:text-white text-sm font-medium"
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                scrolled
+                  ? 'glass glass-hover text-slate-600 hover:text-slate-900'
+                  : 'bg-white/10 border border-white/20 hover:bg-white/20 text-white'
+              }`}
             >
               <BookOpen className="w-4 h-4" />
               Facilito EAD
@@ -82,7 +90,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-slate-300 hover:text-white"
+            className={`lg:hidden p-2 transition-colors ${scrolled ? 'text-slate-600 hover:text-slate-900' : 'text-white hover:text-slate-200'}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Abrir menu"
           >
@@ -98,7 +106,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-slate-900/98 backdrop-blur-md border-t border-white/5"
+            className="lg:hidden bg-white border-t border-slate-100 border-b border-slate-100"
           >
             <div className="px-4 py-6 space-y-4">
               {NAV_LINKS.map((link) => (
@@ -106,16 +114,16 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-slate-300 hover:text-white py-2 text-sm font-medium"
+                  className="block text-slate-700 hover:text-slate-900 py-2 text-sm font-medium"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="pt-4 space-y-3 border-t border-white/10">
-                <a href="#" className="flex items-center gap-2 text-slate-300 hover:text-white text-sm py-2">
+              <div className="pt-4 space-y-3 border-t border-slate-100">
+                <a href="#" className="flex items-center gap-2 text-slate-600 hover:text-slate-900 text-sm py-2">
                   <User className="w-4 h-4" /> Área do Cliente
                 </a>
-                <a href="#" className="flex items-center gap-2 text-slate-300 hover:text-white text-sm py-2">
+                <a href="#" className="flex items-center gap-2 text-slate-600 hover:text-slate-900 text-sm py-2">
                   <BookOpen className="w-4 h-4" /> Facilito EAD
                 </a>
               </div>

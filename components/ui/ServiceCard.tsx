@@ -21,15 +21,14 @@ export function ServiceCard({ title, description, icon, index }: ServiceCardProp
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.07 }}
       whileHover={{ y: -4 }}
-      className="group relative p-6 rounded-2xl glass glass-hover cursor-default"
+      className="group relative p-6 rounded-2xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-md cursor-default transition-all duration-300"
     >
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:to-blue-400/5 transition-all duration-500" />
       <div className="relative z-10">
-        <div className="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-4 group-hover:bg-blue-600/30 transition-colors duration-300">
-          <Icon className="w-6 h-6 text-blue-400" />
+        <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors duration-300">
+          <Icon className="w-6 h-6 text-blue-600" />
         </div>
-        <h3 className="text-white font-semibold mb-2" style={{ fontFamily: 'var(--font-outfit)' }}>{title}</h3>
-        <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
+        <h3 className="text-slate-900 font-semibold mb-2" style={{ fontFamily: 'var(--font-outfit)' }}>{title}</h3>
+        <p className="text-slate-600 text-sm leading-relaxed">{description}</p>
       </div>
     </motion.div>
   )

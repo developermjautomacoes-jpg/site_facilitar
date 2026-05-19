@@ -15,8 +15,8 @@ const VALUES = [
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="section-padding bg-[#0F172A] relative overflow-hidden">
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
+    <section id="sobre" className="section-padding bg-white relative overflow-hidden">
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -25,24 +25,24 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-sm font-medium mb-4">
               Sobre a Facilitar
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-outfit)' }}>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6" style={{ fontFamily: 'var(--font-outfit)' }}>
               Simplificamos a <span className="text-gradient">Contabilidade</span> para você focar no que importa
             </h2>
-            <p className="text-slate-400 leading-relaxed mb-6">
+            <p className="text-slate-600 leading-relaxed mb-6">
               A Facilitar Serviços Contábeis nasceu com o propósito de transformar a relação entre empresas e
               contabilidade, oferecendo atendimento próximo, estratégico e altamente tecnológico.
             </p>
-            <p className="text-slate-400 leading-relaxed mb-8">
+            <p className="text-slate-600 leading-relaxed mb-8">
               Localizada em Serra/ES, atuamos com soluções contábeis, fiscais e administrativas para empresas
               de diversos segmentos, sempre focando em segurança, agilidade e crescimento sustentável.
             </p>
             <ul className="space-y-3">
               {VALUES.map((value) => (
-                <li key={value} className="flex items-start gap-3 text-slate-300 text-sm">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+                <li key={value} className="flex items-start gap-3 text-slate-700 text-sm">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                   {value}
                 </li>
               ))}
@@ -63,12 +63,12 @@ export function AboutSection() {
             </div>
             <div className="grid grid-cols-2 gap-6">
               {STATS.map((stat) => (
-                <div key={stat.label} className="p-6 rounded-2xl glass text-center">
+                <div key={stat.label} className="p-6 rounded-2xl bg-gray-50 border border-slate-200 text-center">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} label={stat.label} />
                 </div>
               ))}
             </div>
-            <p className="text-center text-slate-500 text-xs">
+            <p className="text-center text-slate-400 text-xs border-t border-slate-200 pt-4">
               Fundada em {COMPANY.founded} · CNPJ {COMPANY.cnpj}
             </p>
           </motion.div>

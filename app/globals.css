@@ -14,8 +14,8 @@
   }
 
   body {
-    background-color: #0F172A;
-    color: white;
+    background-color: #FFFFFF;
+    color: #0F172A;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -29,7 +29,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background-color: #0f172a;
+    background-color: #f1f5f9;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -39,21 +39,22 @@
 }
 
 @utility glass {
-  background-color: rgb(255 255 255 / 0.05);
+  background-color: rgb(255 255 255 / 0.85);
   backdrop-filter: blur(12px);
-  border: 1px solid rgb(255 255 255 / 0.10);
+  border: 1px solid rgb(226 232 240);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
 }
 
 @utility glass-hover {
   &:hover {
-    background-color: rgb(255 255 255 / 0.10);
-    border-color: rgb(255 255 255 / 0.20);
+    background-color: rgb(248 250 252);
+    border-color: rgb(203 213 225);
     transition: all 0.3s;
   }
 }
 
 @utility text-gradient {
-  background-image: linear-gradient(to right, #60a5fa, #bfdbfe);
+  background-image: linear-gradient(to right, #2563EB, #3B82F6);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
