@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { ArrowRight, FileSearch, Phone, MapPin, CheckCircle2, Star } from 'lucide-react'
+import { ArrowRight, FileSearch, Phone, MapPin, CheckCircle2 } from 'lucide-react'
 import { COMPANY } from '@/utils/constants'
 import { buildWhatsAppLink } from '@/utils/formatters'
 
@@ -153,21 +153,6 @@ export function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Floating card — rating */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 flex items-center gap-2"
-            >
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <span className="text-slate-900 font-bold text-sm">5.0</span>
-              <span className="text-slate-400 text-xs">Google</span>
-            </motion.div>
           </motion.div>
 
         </div>

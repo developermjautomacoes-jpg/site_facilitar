@@ -68,9 +68,6 @@ export function AboutSection() {
                 </div>
               ))}
             </div>
-            <p className="text-center text-slate-400 text-xs border-t border-slate-200 pt-4">
-              Fundada em {COMPANY.founded} · CNPJ {COMPANY.cnpj}
-            </p>
           </motion.div>
         </div>
       </div>
