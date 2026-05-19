@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { ArrowRight, FileSearch, Phone, MapPin } from 'lucide-react'
+import { ArrowRight, FileSearch, Phone, MapPin, CheckCircle2, Star } from 'lucide-react'
 import { COMPANY } from '@/utils/constants'
 import { buildWhatsAppLink } from '@/utils/formatters'
 
@@ -9,10 +9,10 @@ export function HeroSection() {
   const whatsappLink = buildWhatsAppLink(COMPANY.whatsapp, COMPANY.whatsappMessage)
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-slate-100">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-slate-50">
       {/* Subtle grid pattern */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.04]"
+        className="absolute inset-0 z-0 opacity-[0.035]"
         style={{
           backgroundImage:
             'linear-gradient(rgba(37,99,235,1) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,1) 1px, transparent 1px)',
@@ -20,105 +20,151 @@ export function HeroSection() {
         }}
       />
 
-      {/* Right side image */}
-      <div className="absolute right-0 top-0 bottom-0 w-[45%] hidden lg:block z-0">
-        <Image
-          src="/img/hero-bg3.jpg"
-          alt="Facilitar Serviços Contábeis — Escritório Serra/ES"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
-        {/* Fade from left so text area stays white */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent" />
-      </div>
+      {/* Decorative blobs */}
+      <div className="absolute top-32 right-8 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-50 pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-70 pointer-events-none" />
 
-      {/* Decorative blue blob */}
-      <div className="absolute top-20 right-[45%] w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-60 pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-48 h-48 bg-blue-50 rounded-full blur-2xl opacity-80 pointer-events-none" />
+      {/* Two-column layout */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 w-full">
+        <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center">
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full">
-        <div className="max-w-2xl">
-          {/* Location badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-slate-600 text-sm mb-8"
-          >
-            <MapPin className="w-4 h-4 text-blue-600" />
-            Serra / Espírito Santo
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-slate-900"
-            style={{ fontFamily: 'var(--font-outfit)' }}
-          >
-            Contabilidade{' '}
-            <span className="text-gradient">Inteligente</span>{' '}
-            para Empresas que Querem Crescer
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg text-slate-600 mb-10 max-w-xl leading-relaxed"
-          >
-            A Facilitar Serviços Contábeis oferece soluções fiscais, tributárias e empresariais
-            com tecnologia, segurança e atendimento humanizado.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-semibold text-lg transition-all duration-300 shadow-lg shadow-blue-600/25 hover:-translate-y-0.5"
+          {/* Left: Text */}
+          <div>
+            {/* Location badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-slate-600 text-sm mb-8"
             >
-              <Phone className="w-5 h-5" />
-              Falar com Especialista
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#contato"
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-semibold text-lg transition-all duration-300 hover:bg-blue-50"
+              <MapPin className="w-4 h-4 text-blue-600" />
+              Serra / Espírito Santo
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight mb-6 text-slate-900"
+              style={{ fontFamily: 'var(--font-outfit)' }}
             >
-              <FileSearch className="w-5 h-5" />
-              Solicitar Diagnóstico Gratuito
-            </a>
+              Contabilidade{' '}
+              <span className="text-gradient">Inteligente</span>{' '}
+              para Empresas que Querem Crescer
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-lg text-slate-600 mb-10 leading-relaxed"
+            >
+              A Facilitar Serviços Contábeis oferece soluções fiscais, tributárias e empresariais
+              com tecnologia, segurança e atendimento humanizado.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-semibold text-lg transition-all duration-300 shadow-lg shadow-blue-600/25 hover:-translate-y-0.5"
+              >
+                <Phone className="w-5 h-5" />
+                Falar com Especialista
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="#contato"
+                className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-semibold text-lg transition-all duration-300 hover:bg-blue-50"
+              >
+                <FileSearch className="w-5 h-5" />
+                Solicitar Diagnóstico Gratuito
+              </a>
+            </motion.div>
+
+            {/* Contact info */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="mt-10 flex flex-wrap items-center gap-4 text-slate-500 text-sm"
+            >
+              <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2 hover:text-blue-600 transition-colors">
+                <Phone className="w-4 h-4 text-blue-600" />
+                {COMPANY.phone}
+              </a>
+              <span className="text-slate-200 hidden sm:block">·</span>
+              <a href={`mailto:${COMPANY.email}`} className="hover:text-blue-600 transition-colors">
+                {COMPANY.email}
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right: Professional photo */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.25 }}
+            className="hidden lg:flex justify-center items-center relative"
+          >
+            {/* Decorative rotated background card */}
+            <div className="absolute inset-4 rounded-3xl bg-gradient-to-br from-blue-100 to-blue-200/60 transform rotate-3 shadow-sm" />
+
+            {/* Photo */}
+            <div className="relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/15 ring-1 ring-blue-100">
+              <Image
+                src="/img/team-office1.jpg"
+                alt="Especialista Facilitar Serviços Contábeis"
+                fill
+                className="object-cover object-top"
+                priority
+                quality={90}
+              />
+            </div>
+
+            {/* Floating card — years of experience */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl border border-slate-100 px-5 py-4 flex items-center gap-3"
+            >
+              <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shrink-0">
+                <CheckCircle2 className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p className="text-slate-900 font-bold text-sm">+200 Clientes</p>
+                <p className="text-slate-500 text-xs">Atendidos com excelência</p>
+              </div>
+            </motion.div>
+
+            {/* Floating card — rating */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 flex items-center gap-2"
+            >
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <span className="text-slate-900 font-bold text-sm">5.0</span>
+              <span className="text-slate-400 text-xs">Google</span>
+            </motion.div>
           </motion.div>
 
-          {/* Contact info */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-12 flex flex-wrap items-center gap-4 text-slate-500 text-sm"
-          >
-            <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2 hover:text-blue-600 transition-colors">
-              <Phone className="w-4 h-4 text-blue-600" />
-              {COMPANY.phone}
-            </a>
-            <span className="text-slate-300 hidden sm:block">·</span>
-            <a href={`mailto:${COMPANY.email}`} className="hover:text-blue-600 transition-colors">
-              {COMPANY.email}
-            </a>
-          </motion.div>
         </div>
       </div>
     </section>
