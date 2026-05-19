@@ -30,22 +30,16 @@ export const NAV_LINKS = [
 
 export const SERVICES = [
   {
-    id: 'contabilidade',
-    title: 'Contabilidade Empresarial',
+    id: 'legalizacao',
+    title: 'Departamento de Legalização',
+    description: 'Abertura, alteração e encerramento de empresas, registros e alvarás com agilidade e segurança jurídica.',
+    icon: 'Building2',
+  },
+  {
+    id: 'contabil',
+    title: 'Departamento Contábil',
     description: 'Escrituração contábil, demonstrações financeiras e relatórios gerenciais para apoiar decisões estratégicas.',
     icon: 'BookOpen',
-  },
-  {
-    id: 'consultoria-tributaria',
-    title: 'Consultoria Tributária',
-    description: 'Análise e orientação tributária personalizada para reduzir riscos e otimizar a carga fiscal da sua empresa.',
-    icon: 'Scale',
-  },
-  {
-    id: 'planejamento',
-    title: 'Planejamento Tributário',
-    description: 'Estratégias legais para minimizar tributos com segurança jurídica e máxima eficiência fiscal.',
-    icon: 'TrendingDown',
   },
   {
     id: 'fiscal',
@@ -60,34 +54,28 @@ export const SERVICES = [
     icon: 'Users',
   },
   {
-    id: 'bpo',
-    title: 'BPO Financeiro',
-    description: 'Terceirização do financeiro com controle de fluxo de caixa, contas a pagar/receber e relatórios.',
+    id: 'compete',
+    title: 'Compete',
+    description: 'Assessoria completa no programa de incentivo fiscal Compete para empresas do Espírito Santo.',
+    icon: 'TrendingDown',
+  },
+  {
+    id: 'contribuinte-substituto',
+    title: 'Contribuinte Substituto',
+    description: 'Gestão e regularização do regime de substituição tributária com eficiência e segurança.',
+    icon: 'Scale',
+  },
+  {
+    id: 'invest-es',
+    title: 'Invest-ES',
+    description: 'Orientação e habilitação para o programa de incentivo ao investimento do Espírito Santo.',
     icon: 'BarChart3',
   },
   {
-    id: 'abertura',
-    title: 'Abertura de Empresas',
-    description: 'Registro e legalização de empresas com agilidade, escolha do regime tributário ideal e suporte completo.',
-    icon: 'Building2',
-  },
-  {
-    id: 'regularizacao',
-    title: 'Regularização Fiscal',
-    description: 'Resolução de pendências fiscais, parcelamentos e recuperação de créditos tributários.',
+    id: 'fundap',
+    title: 'Fundap',
+    description: 'Suporte no acesso ao Fundo para o Desenvolvimento das Atividades Portuárias e benefícios fiscais.',
     icon: 'ShieldCheck',
-  },
-  {
-    id: 'administrativo',
-    title: 'Apoio Administrativo',
-    description: 'Suporte em processos administrativos, emissão de certidões, alvarás e obrigações municipais.',
-    icon: 'ClipboardList',
-  },
-  {
-    id: 'especializados',
-    title: 'Serviços Especializados',
-    description: 'Soluções personalizadas para demandas específicas do seu segmento empresarial.',
-    icon: 'Sparkles',
   },
 ]
 

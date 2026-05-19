@@ -17,10 +17,10 @@ export function ServicesSection() {
             Nossas Especialidades
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-outfit)' }}>
-            Soluções Contábeis <span className="text-gradient">Completas</span>
+            Departamentos & <span className="text-gradient">Incentivos Fiscais</span>
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Da abertura ao crescimento da sua empresa, oferecemos serviços especializados para cada fase do negócio.
+            Estrutura completa de departamentos contábeis e domínio nos principais incentivos fiscais do Espírito Santo.
           </p>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">

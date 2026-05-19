@@ -7,7 +7,7 @@ import { COMPANY } from '@/utils/constants'
 export function HeroSection() {
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-slate-50">
+    <section id="home" className="relative flex items-center overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-slate-50">
       {/* Subtle grid pattern */}
       <div
         className="absolute inset-0 z-0 opacity-[0.035]"
@@ -23,7 +23,7 @@ export function HeroSection() {
       <div className="absolute bottom-10 left-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-70 pointer-events-none" />
 
       {/* Two-column layout */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 w-full">
         <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center">
 
           {/* Left: Text */}
@@ -86,13 +86,13 @@ export function HeroSection() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
-            className="hidden lg:flex justify-center items-center relative"
+            className="hidden lg:flex justify-center items-center relative py-4"
           >
             {/* Decorative rotated background card */}
             <div className="absolute inset-4 rounded-3xl bg-gradient-to-br from-blue-100 to-blue-200/60 transform rotate-3 shadow-sm" />
 
             {/* Photo */}
-            <div className="relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/15 ring-1 ring-blue-100">
+            <div className="relative w-full max-w-xs xl:max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/15 ring-1 ring-blue-100">
               <Image
                 src="/img/team-office1.jpg"
                 alt="Thais de Sousa Barbosa — CEO Facilitar Serviços Contábeis"
