@@ -7,7 +7,7 @@ import { AboutSection } from '@/components/sections/AboutSection'
 import { DifferentialsSection } from '@/components/sections/DifferentialsSection'
 import { BlogSection } from '@/components/sections/BlogSection'
 import { ContactSection } from '@/components/sections/ContactSection'
-import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
+import { ChatButton } from '@/components/ui/ChatButton'
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
-      <WhatsAppButton />
+      <ChatButton />
     </>
   )
 }

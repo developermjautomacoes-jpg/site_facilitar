@@ -17,6 +17,8 @@ export function Footer() {
     <footer className="bg-slate-950 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+          {/* Coluna esquerda: logo Facilitar + descricao + redes sociais + NEEKO */}
           <div className="lg:col-span-2">
             <div className="relative w-48 h-14 mb-4" style={{ mixBlendMode: 'screen' }}>
               <Image src="/img/logo_com_fundo.png" alt="Facilitar Serviços Contábeis" fill className="object-contain" />
@@ -24,7 +26,7 @@ export function Footer() {
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
               Contabilidade estratégica para empresas que querem crescer. Atendimento humanizado, tecnologia e segurança em Serra/ES.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-3 mb-8">
               {[
                 { href: '#', label: 'Instagram', abbr: 'IG' },
                 { href: '#', label: 'Facebook', abbr: 'FB' },
@@ -36,8 +38,22 @@ export function Footer() {
                 </a>
               ))}
             </div>
+
+            {/* Crédito NEEKO com logo */}
+            <div className="flex items-center gap-3 pt-4 border-t border-white/5">
+              <p className="text-slate-500 text-xs whitespace-nowrap">Um site desenvolvido por</p>
+              <div className="relative w-28 h-8">
+                <Image
+                  src="/img/logo_neeko_fundo_branco.png"
+                  alt="NEEKO Automações Inteligentes"
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
+            </div>
           </div>
 
+          {/* Links Rápidos */}
           <div>
             <h3 className="text-white font-semibold mb-4 text-sm" style={{ fontFamily: 'var(--font-outfit)' }}>Links Rápidos</h3>
             <ul className="space-y-3">
@@ -51,6 +67,7 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Contato */}
           <div>
             <h3 className="text-white font-semibold mb-4 text-sm" style={{ fontFamily: 'var(--font-outfit)' }}>Contato</h3>
             <ul className="space-y-4">
@@ -79,16 +96,10 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Barra inferior */}
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-xs">{COMPANY.fullName} · CNPJ {COMPANY.cnpj}</p>
-          <div className="flex flex-col sm:flex-row items-center gap-3">
-            <p className="text-slate-600 text-xs">© {year} Todos os direitos reservados</p>
-            <span className="text-slate-700 hidden sm:block">·</span>
-            <p className="text-slate-500 text-xs">
-              Desenvolvido por{' '}
-              <span className="text-blue-400 font-medium">NEEKO Automações</span>
-            </p>
-          </div>
+          <p className="text-slate-600 text-xs">© {year} Todos os direitos reservados</p>
         </div>
       </div>
     </footer>
