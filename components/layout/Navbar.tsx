@@ -55,7 +55,7 @@ export function Navbar() {
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="#"
+              href="/portal/login"
               className="flex items-center gap-2 px-4 py-2 rounded-lg glass glass-hover text-slate-600 hover:text-slate-900 text-sm font-medium transition-all duration-300"
             >
               <User className="w-4 h-4" />
@@ -102,7 +102,7 @@ export function Navbar() {
                 </a>
               ))}
               <div className="pt-4 space-y-3 border-t border-slate-100">
-                <a href="#" className="flex items-center gap-2 text-slate-600 hover:text-slate-900 text-sm py-2">
+                <a href="/portal/login" className="flex items-center gap-2 text-slate-600 hover:text-slate-900 text-sm py-2">
                   <User className="w-4 h-4" /> Área do Cliente
                 </a>
                 <a href="#" className="flex items-center gap-2 text-slate-600 hover:text-slate-900 text-sm py-2">
