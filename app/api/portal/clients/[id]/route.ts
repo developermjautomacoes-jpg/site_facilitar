@@ -1,14 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { deleteUser, getUserByEmail, updateClient } from '@/lib/db'
+import { isAdminRequest } from '@/lib/session'
+import { deleteUser, updateClient } from '@/lib/db'
 import { hashPassword } from '@/lib/auth'
 
-// Helper to verify if the requester is an admin
 function isAdmin(req: NextRequest): boolean {
-  const adminEmail = req.headers.get('x-admin-email')
-  if (!adminEmail) return false
-
-  const user = getUserByEmail(adminEmail)
-  return user !== null && user.role === 'admin'
+  return isAdminRequest(req)
 }
 
 export async function PUT(

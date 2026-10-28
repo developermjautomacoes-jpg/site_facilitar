@@ -1,6 +1,11 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
+  async rewrites() {
+    // Arquivos enviados pelo portal ficam no volume, fora de /public
+    return [{ source: '/uploads/:path*', destination: '/api/files/:path*' }]
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
   },

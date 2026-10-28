@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getUserByEmail } from '@/lib/db'
+import { isAdminRequest } from '@/lib/session'
 import path from 'path'
 import fs from 'fs'
+import { UPLOADS_DIR } from '@/lib/paths'
 
 function isAdmin(req: NextRequest): boolean {
-  const adminEmail = req.headers.get('x-admin-email')
-  if (!adminEmail) return false
-  const user = getUserByEmail(adminEmail)
-  return user !== null && user.role === 'admin'
+  return isAdminRequest(req)
 }
 
 export async function POST(req: NextRequest) {
@@ -26,7 +24,7 @@ export async function POST(req: NextRequest) {
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
 
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'ead')
+    const uploadDir = path.join(UPLOADS_DIR, 'ead')
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true })
     }

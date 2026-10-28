@@ -1,13 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getUserByEmail, markNotificationResolved } from '@/lib/db'
+import { isAdminRequest } from '@/lib/session'
+import { markNotificationResolved } from '@/lib/db'
 
-// Helper to verify if the requester is an admin
 function isAdmin(req: NextRequest): boolean {
-  const adminEmail = req.headers.get('x-admin-email')
-  if (!adminEmail) return false
-
-  const user = getUserByEmail(adminEmail)
-  return user !== null && user.role === 'admin'
+  return isAdminRequest(req)
 }
 
 export async function PUT(

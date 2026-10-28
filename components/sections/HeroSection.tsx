@@ -87,7 +87,7 @@ export function HeroSection() {
                 fill
                 className="object-cover object-top"
                 priority
-                quality={75, 90}
+                quality={75}
               />
               {/* Name tag at bottom of photo */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent px-5 py-5">

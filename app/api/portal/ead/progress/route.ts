@@ -1,16 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getStudentProgress, toggleLessonCompletion } from '@/lib/db'
+import { getSessionUser } from '@/lib/session'
+
+const unauthorized = () =>
+  NextResponse.json({ success: false, message: 'Faça login novamente.' }, { status: 401 })
 
 export async function GET(req: NextRequest) {
   try {
-    const { searchParams } = new URL(req.url)
-    const email = searchParams.get('email') || req.headers.get('x-user-email')
+    const user = getSessionUser(req)
+    if (!user) return unauthorized()
 
-    if (!email) {
-      return NextResponse.json({ success: false, message: 'E-mail do usuário não fornecido.' }, { status: 400 })
-    }
-
-    const completed = getStudentProgress(email)
+    const completed = getStudentProgress(user.email)
     return NextResponse.json({ success: true, completedLessons: completed })
   } catch (err) {
     console.error('GET progress error:', err)
@@ -20,14 +20,17 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
-    const { email, moduleId, lessonId, completed } = body
+    const user = getSessionUser(req)
+    if (!user) return unauthorized()
 
-    if (!email || !moduleId || !lessonId) {
+    const body = await req.json()
+    const { moduleId, lessonId, completed } = body
+
+    if (!moduleId || !lessonId) {
       return NextResponse.json({ success: false, message: 'Dados incompletos.' }, { status: 400 })
     }
 
-    const updated = toggleLessonCompletion(email, moduleId, lessonId, completed)
+    const updated = toggleLessonCompletion(user.email, moduleId, lessonId, completed)
     return NextResponse.json({ success: true, completedLessons: updated })
   } catch (err) {
     console.error('POST progress error:', err)

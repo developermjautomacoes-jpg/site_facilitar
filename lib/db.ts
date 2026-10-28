@@ -1,15 +1,16 @@
-import path from 'path'
 import fs from 'fs'
+import crypto from 'crypto'
 import { hashPassword } from './auth'
+import { DATA_DIR, dataFile } from './paths'
 
 // ─── JSON-based user storage (no native deps required) ────────────────
 
-const USERS_FILE = path.join(process.cwd(), 'data', 'users.json')
-const LEADS_FILE = path.join(process.cwd(), 'data', 'leads.json')
-const NOTIFICATIONS_FILE = path.join(process.cwd(), 'data', 'notifications.json')
+const USERS_FILE = dataFile('users.json')
+const LEADS_FILE = dataFile('leads.json')
+const NOTIFICATIONS_FILE = dataFile('notifications.json')
 
 function ensureDataDir() {
-  const dir = path.join(process.cwd(), 'data')
+  const dir = DATA_DIR
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true })
   }
@@ -29,6 +30,14 @@ export interface UserData {
   created_at?: string
 }
 
+function initialAdminPassword(): string {
+  const fromEnv = process.env.ADMIN_INITIAL_PASSWORD
+  if (fromEnv) return fromEnv
+  const generated = crypto.randomBytes(12).toString('base64url')
+  console.warn(`[portal] Usuário admin criado com senha temporária: ${generated} — troque no primeiro acesso.`)
+  return generated
+}
+
 function readUsers(): UserData[] {
   ensureDataDir()
   if (!fs.existsSync(USERS_FILE)) {
@@ -37,7 +46,7 @@ function readUsers(): UserData[] {
       id: 1,
       name: 'Monique',
       email: 'monique@facilitar.net.br',
-      password: hashPassword('facilitardoc2026'),
+      password: hashPassword(initialAdminPassword()),
       role: 'admin',
       active: true,
       created_at: new Date().toISOString(),
@@ -274,9 +283,9 @@ export function markNotificationRead(id: number): boolean {
 
 // ─── EAD Database ────────────────────────────────────────────────────
 
-const EAD_MODULES_FILE = path.join(process.cwd(), 'data', 'ead_modules.json')
-const EAD_PROGRESS_FILE = path.join(process.cwd(), 'data', 'ead_progress.json')
-const EAD_CHAT_FILE = path.join(process.cwd(), 'data', 'ead_chat.json')
+const EAD_MODULES_FILE = dataFile('ead_modules.json')
+const EAD_PROGRESS_FILE = dataFile('ead_progress.json')
+const EAD_CHAT_FILE = dataFile('ead_chat.json')
 
 export interface EadSlide {
   title: string

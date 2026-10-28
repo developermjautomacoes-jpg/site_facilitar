@@ -1,14 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { listEadModules, createEadModule, getUserByEmail } from '@/lib/db'
+import { getSessionUser, isAdminRequest } from '@/lib/session'
+import { listEadModules, createEadModule } from '@/lib/db'
 
 function isAdmin(req: NextRequest): boolean {
-  const adminEmail = req.headers.get('x-admin-email')
-  if (!adminEmail) return false
-  const user = getUserByEmail(adminEmail)
-  return user !== null && user.role === 'admin'
+  return isAdminRequest(req)
 }
 
 export async function GET(req: NextRequest) {
+  if (!getSessionUser(req)) {
+    return NextResponse.json({ success: false, message: 'Faça login novamente.' }, { status: 401 })
+  }
   try {
     const modules = listEadModules()
     return NextResponse.json({ success: true, modules })

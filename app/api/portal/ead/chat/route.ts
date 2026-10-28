@@ -1,12 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getEadChatForLesson, listAllEadChats, postEadChatMessage, replyEadChatMessage } from '@/lib/db'
+import { getSessionUser } from '@/lib/session'
+
+const unauthorized = () =>
+  NextResponse.json({ success: false, message: 'Faça login novamente.' }, { status: 401 })
 
 export async function GET(req: NextRequest) {
   try {
+    const user = getSessionUser(req)
+    if (!user) return unauthorized()
+
     const { searchParams } = new URL(req.url)
     const all = searchParams.get('all') === 'true'
 
     if (all) {
+      if (user.role !== 'admin') {
+        return NextResponse.json({ success: false, message: 'Não autorizado.' }, { status: 403 })
+      }
       const chats = listAllEadChats()
       return NextResponse.json({ success: true, chats })
     }
@@ -33,24 +43,27 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
+    const user = getSessionUser(req)
+    if (!user) return unauthorized()
+
     const body = await req.json()
     const { action } = body
 
     if (action === 'post_message') {
-      const { moduleId, lessonId, email, name, role, message } = body
-      if (!moduleId || !lessonId || !email || !name || !role || !message) {
+      const { moduleId, lessonId, message } = body
+      if (!moduleId || !lessonId || !message) {
         return NextResponse.json({ success: false, message: 'Campos obrigatórios ausentes.' }, { status: 400 })
       }
-      const msg = postEadChatMessage(parseInt(moduleId, 10), lessonId, email, name, role, message)
+      const msg = postEadChatMessage(parseInt(moduleId, 10), lessonId, user.email, user.name, user.role as 'admin' | 'client', message)
       return NextResponse.json({ success: true, chat: msg })
     }
 
     if (action === 'reply_message') {
-      const { messageId, name, role, message } = body
-      if (!messageId || !name || !role || !message) {
+      const { messageId, message } = body
+      if (!messageId || !message) {
         return NextResponse.json({ success: false, message: 'Campos obrigatórios ausentes.' }, { status: 400 })
       }
-      const updated = replyEadChatMessage(parseInt(messageId, 10), name, role, message)
+      const updated = replyEadChatMessage(parseInt(messageId, 10), user.name, user.role as 'admin' | 'client', message)
       if (!updated) {
         return NextResponse.json({ success: false, message: 'Mensagem não encontrada.' }, { status: 404 })
       }

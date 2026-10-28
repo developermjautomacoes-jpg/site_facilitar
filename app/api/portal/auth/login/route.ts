@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getUserByEmail } from '@/lib/db'
-import { verifyPassword } from '@/lib/auth'
+import { getUserByEmail, updateClientPassword } from '@/lib/db'
+import { hashPassword, isLegacyHash, verifyPassword } from '@/lib/auth'
+import { setSessionCookie } from '@/lib/session'
 
 export async function POST(req: NextRequest) {
   try {
@@ -40,8 +41,13 @@ export async function POST(req: NextRequest) {
       )
     }
 
+    // Migra senha do formato antigo (SHA-256 sem sal) para scrypt
+    if (isLegacyHash(user.password)) {
+      updateClientPassword(user.email, hashPassword(password))
+    }
+
     // Success response - omit password
-    return NextResponse.json({
+    const res = NextResponse.json({
       success: true,
       user: {
         id: user.id,
@@ -53,6 +59,8 @@ export async function POST(req: NextRequest) {
         active: user.active !== false,
       },
     })
+    setSessionCookie(res, user.email)
+    return res
   } catch (err) {
     console.error('Login API error:', err)
     return NextResponse.json(

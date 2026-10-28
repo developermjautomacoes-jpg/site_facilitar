@@ -215,6 +215,7 @@ export default function FacilitoEad() {
   }, [activeLesson, activeModuleForLesson])
 
   const handleLogout = () => {
+    fetch('/api/portal/auth/logout', { method: 'POST' }).catch(() => {})
     sessionStorage.removeItem('portal_user')
     router.push('/portal/login')
   }

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { isAdminRequest } from '@/lib/session'
 import {
-  getUserByEmail,
   updateEadModule,
   deleteEadModule,
   addEadLesson,
@@ -9,10 +9,7 @@ import {
 } from '@/lib/db'
 
 function isAdmin(req: NextRequest): boolean {
-  const adminEmail = req.headers.get('x-admin-email')
-  if (!adminEmail) return false
-  const user = getUserByEmail(adminEmail)
-  return user !== null && user.role === 'admin'
+  return isAdminRequest(req)
 }
 
 export async function PUT(
