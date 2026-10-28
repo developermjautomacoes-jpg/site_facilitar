@@ -14,37 +14,49 @@ export function Footer() {
   const waLink = buildWhatsAppLink(COMPANY.whatsapp, COMPANY.whatsappMessage)
 
   return (
-    <footer className="bg-slate-950 border-t border-white/5">
+    <footer className="bg-slate-950 border-t border-white/5 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
-          {/* Coluna esquerda: logo Facilitar + descricao + redes sociais + NEEKO */}
-          <div className="lg:col-span-2">
-            <div className="relative w-48 h-14 mb-4" style={{ mixBlendMode: 'screen' }}>
-              <Image src="/img/logo_com_fundo.png" alt="Facilitar Serviços Contábeis" fill className="object-contain" />
-            </div>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
-              Contabilidade estratégica para empresas que querem crescer. Atendimento humanizado, tecnologia e segurança em Serra/ES.
-            </p>
-            <div className="flex gap-3 mb-8">
-              {[
-                { href: '#', label: 'Instagram', abbr: 'IG' },
-                { href: '#', label: 'Facebook', abbr: 'FB' },
-                { href: '#', label: 'LinkedIn', abbr: 'IN' },
-              ].map(({ href, label, abbr }) => (
-                <a key={label} href={href} aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-colors text-xs font-bold">
-                  {abbr}
-                </a>
-              ))}
+          {/* Coluna esquerda: logo Facilitar + descricao + redes sociais */}
+          <div className="lg:col-span-2 flex flex-col justify-between">
+            <div>
+              {/* Logo Principal Aumentada: w-52 h-24 para dar presença */}
+              <div className="relative w-52 h-24 mb-6" style={{ mixBlendMode: 'screen' }}>
+                <Image 
+                  src="/img/logo_facilitar1.png" 
+                  alt="Facilitar Serviços Contábeis" 
+                  fill 
+                  className="object-contain object-left" 
+                  priority
+                />
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-sm">
+                Contabilidade estratégica para empresas que querem crescer. 
+                Atendimento humanizado, tecnologia e segurança em Serra/ES.
+              </p>
+              
+              {/* Redes Sociais com hover mais vibrante */}
+              <div className="flex gap-4 mb-8">
+                {[
+                  { href: '#', label: 'Instagram', abbr: 'IG' },
+                  { href: '#', label: 'Facebook', abbr: 'FB' },
+                  { href: '#', label: 'LinkedIn', abbr: 'IN' },
+                ].map(({ href, label, abbr }) => (
+                  <a key={label} href={href} aria-label={label}
+                    className="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all hover:scale-110 text-xs font-bold tracking-wider">
+                    {abbr}
+                  </a>
+                ))}
+              </div>
             </div>
 
-            {/* Crédito NEEKO com logo */}
-            <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-              <p className="text-slate-500 text-xs whitespace-nowrap">Um site desenvolvido por</p>
-              <div className="relative w-28 h-8">
+            {/* Crédito NEEKO com logo mais nítida */}
+            <div className="flex items-center gap-4 pt-6 border-t border-white/5">
+              <span className="text-slate-500 text-xs uppercase tracking-widest">Powered by</span>
+              <div className="relative w-32 h-10 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
                 <Image
-                  src="/img/logo_neeko_fundo_branco.png"
+                  src="/img/logo neeko.png"
                   alt="NEEKO Automações Inteligentes"
                   fill
                   className="object-contain object-left"
@@ -54,12 +66,17 @@ export function Footer() {
           </div>
 
           {/* Links Rápidos */}
-          <div>
-            <h3 className="text-white font-semibold mb-4 text-sm" style={{ fontFamily: 'var(--font-outfit)' }}>Links Rápidos</h3>
-            <ul className="space-y-3">
+          <div className="lg:pl-8">
+            <h3 className="text-white font-bold mb-6 text-sm uppercase tracking-widest" style={{ fontFamily: 'var(--font-outfit)' }}>
+              Links Rápidos
+            </h3>
+            <ul className="space-y-4">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-slate-400 hover:text-white text-sm transition-colors">{link.label}</a>
+                  <a href={link.href} className="text-slate-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2 group">
+                    <span className="w-1 h-1 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-all"></span>
+                    {link.label}
+                  </a>
                 </li>
               ))}
               <li><a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Política de Privacidade</a></li>
@@ -69,27 +86,31 @@ export function Footer() {
 
           {/* Contato */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm" style={{ fontFamily: 'var(--font-outfit)' }}>Contato</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+            <h3 className="text-white font-bold mb-6 text-sm uppercase tracking-widest" style={{ fontFamily: 'var(--font-outfit)' }}>
+              Contato
+            </h3>
+            <ul className="space-y-5">
+              <li className="flex items-start gap-3 group">
+                <MapPin className="w-5 h-5 text-blue-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                 <p className="text-slate-400 text-sm leading-relaxed">{COMPANY.address.full}</p>
               </li>
               <li>
-                <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-3 text-slate-400 hover:text-white text-sm transition-colors">
-                  <Phone className="w-4 h-4 text-blue-400" />{COMPANY.phone}
+                <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-3 text-slate-400 hover:text-white text-sm transition-colors group">
+                  <Phone className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform" />
+                  <span className="font-medium">{COMPANY.phone}</span>
                 </a>
               </li>
               <li>
-                <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-3 text-slate-400 hover:text-white text-sm transition-colors">
-                  <Mail className="w-4 h-4 text-blue-400" />{COMPANY.email}
+                <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-3 text-slate-400 hover:text-white text-sm transition-colors group">
+                  <Mail className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform" />
+                  <span className="break-all">{COMPANY.email}</span>
                 </a>
               </li>
               <li>
                 <a href={waLink} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-slate-400 hover:text-white text-sm transition-colors">
-                  <span className="text-green-400"><WhatsAppIcon /></span>
-                  WhatsApp
+                  className="inline-flex items-center gap-3 px-4 py-2 bg-green-500/10 hover:bg-green-500/20 text-green-400 rounded-full text-sm transition-all border border-green-500/20 hover:border-green-500/40">
+                  <WhatsAppIcon />
+                  <span className="font-semibold">Fale Conosco</span>
                 </a>
               </li>
             </ul>
@@ -97,9 +118,13 @@ export function Footer() {
         </div>
 
         {/* Barra inferior */}
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-xs">{COMPANY.fullName} · CNPJ {COMPANY.cnpj}</p>
-          <p className="text-slate-600 text-xs">© {year} Todos os direitos reservados</p>
+        <div className="mt-0,5 pt-4 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-slate-500 text-[10px] md:text-xs tracking-wide">
+            {COMPANY.fullName.toUpperCase()} <span className="mx-2 text-slate-800">|</span> CNPJ {COMPANY.cnpj}
+          </div>
+          <p className="text-slate-600 text-xs font-light">
+            © {year} Facilitar. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>

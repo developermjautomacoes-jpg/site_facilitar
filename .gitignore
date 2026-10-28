@@ -45,3 +45,10 @@ leads.db
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# dados e uploads ficam so no servidor
+/data/
+/public/uploads/
+/img/.claude/
+/img/.playwright-mcp/
+

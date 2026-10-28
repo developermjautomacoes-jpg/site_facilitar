@@ -24,10 +24,10 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-28">
           {/* Logo */}
           <a href="#home" className="flex items-center">
-            <div className="relative w-44 h-12">
+            <div className="relative w-72 h-20">
               <Image
                 src="/img/logo_com_fundo.png"
                 alt="Facilitar Serviços Contábeis"
@@ -62,7 +62,7 @@ export function Navbar() {
               Área do Cliente
             </a>
             <a
-              href="#"
+              href="/portal/ead"
               className="flex items-center gap-2 px-4 py-2 rounded-lg glass glass-hover text-slate-600 hover:text-slate-900 text-sm font-medium transition-all duration-300"
             >
               <BookOpen className="w-4 h-4" />
@@ -105,7 +105,7 @@ export function Navbar() {
                 <a href="/portal/login" className="flex items-center gap-2 text-slate-600 hover:text-slate-900 text-sm py-2">
                   <User className="w-4 h-4" /> Área do Cliente
                 </a>
-                <a href="#" className="flex items-center gap-2 text-slate-600 hover:text-slate-900 text-sm py-2">
+                <a href="/portal/ead" className="flex items-center gap-2 text-slate-600 hover:text-slate-900 text-sm py-2">
                   <BookOpen className="w-4 h-4" /> Facilito EAD
                 </a>
               </div>

@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { FileSearch, MapPin } from 'lucide-react'
+import { FileSearch } from 'lucide-react'
 import { COMPANY } from '@/utils/constants'
 
 export function HeroSection() {
@@ -28,18 +28,6 @@ export function HeroSection() {
 
           {/* Left: Text */}
           <div>
-            {/* Location badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-slate-600 text-sm mb-8"
-            >
-              <MapPin className="w-4 h-4 text-blue-600" />
-              Serra / Espírito Santo
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-            </motion.div>
-
             {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -95,16 +83,16 @@ export function HeroSection() {
             <div className="relative w-full max-w-xs xl:max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/15 ring-1 ring-blue-100">
               <Image
                 src="/img/team-office1.jpg"
-                alt="Thais de Sousa Barbosa — CEO Facilitar Serviços Contábeis"
+                alt="Thais de Sousa Barbosa — Contadora - Facilitar Serviços Contábeis"
                 fill
                 className="object-cover object-top"
                 priority
-                quality={90}
+                quality={75, 90}
               />
               {/* Name tag at bottom of photo */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent px-5 py-5">
                 <p className="text-white font-semibold text-sm">Thais de Sousa Barbosa</p>
-                <p className="text-blue-300 text-xs">CEO — Facilitar Serviços Contábeis</p>
+                <p className="text-blue-300 text-xs">Contadora — Facilitar Serviços Contábeis</p>
               </div>
             </div>
 
